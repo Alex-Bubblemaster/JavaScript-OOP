@@ -50,7 +50,7 @@ function solve() {
 	}
 
 	function fullNameIsValid(fullname){
-		return fullname.match(/^[A-Z][a-z]*?\s[A-Z][a-z]*/);
+		return fullname.match(/^[A-Z][a-z]*?\s[A-Z][a-z]*/); //checks for firstname mandatory 1st Capital letter, lowercase, space and repeat for lastname
 	}
 
 	function validateStudentID(studentID){
@@ -104,8 +104,7 @@ function solve() {
 				if(validateStudentID(results[i].ID)){
 					throw new Error();
 				}
-
-               			}
+              		}
 		},
 		getTopStudents: function() {
 
