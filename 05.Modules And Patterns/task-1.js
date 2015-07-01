@@ -88,7 +88,7 @@ function solve() {
 			students.push(student);
 			return id;
 		},
-		getAllStudents: function() {
+		getAllStudents: function() { //this doesn't work either
 			return this.students.slice(0);
 		},
 		submitHomework: function(studentID, homeworkID) {
