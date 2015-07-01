@@ -115,3 +115,6 @@ function solve() {
 
     return Course;
 }
+
+
+module.exports = solve;
