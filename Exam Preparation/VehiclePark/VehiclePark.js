@@ -1,6 +1,7 @@
 function processVehicleParkCommands(commands) {
     'use strict';
-    if (!Array.prototype.findIndex) {
+    
+    if (!Array.prototype.findIndex) { //polyfill for findIndex
         Array.prototype.findIndex = function (predicate) {
             if (this == null) {
                 throw new TypeError('Array.prototype.findIndex called on null or undefined');
@@ -22,6 +23,7 @@ function processVehicleParkCommands(commands) {
             return -1;
         };
     }
+    
     var Models = (function () {
         var Employee = (function () {
             var Employee = {
@@ -107,8 +109,6 @@ function processVehicleParkCommands(commands) {
                         } else {
                             throw new Error('Brand should be a non-empty string');
                         }
-
-
                     }
                 },
                 age: {
@@ -119,7 +119,6 @@ function processVehicleParkCommands(commands) {
                         if (value === undefined || isNaN(value) || value < 0) {
                             throw new Error('Age should be a non negative number')
                         }
-
                         this._age = value;
                     }
                 },
@@ -131,7 +130,6 @@ function processVehicleParkCommands(commands) {
                         if (value !== 'all' && value !== 'road') {
                             throw new Error('Terrain Coverage can either be \'all\' or \'road\' ')
                         }
-
                         this._terrainCoverage = value;
                     }
                 },
@@ -147,6 +145,7 @@ function processVehicleParkCommands(commands) {
                     }
                 }
             });
+            
             return vehicle;
         }());
 
@@ -158,7 +157,6 @@ function processVehicleParkCommands(commands) {
                         Parent.init.call(this, brand, age, terrainCoverage, 2);
                         this.frameSize = frameSize;
                         this.numberOfShifts = numberOfShifts;
-
                         return this;
                     }
                 },
@@ -277,6 +275,7 @@ function processVehicleParkCommands(commands) {
                     }
                 }
             });
+            
             return truck;
         }(Automobile));
 
@@ -323,11 +322,11 @@ function processVehicleParkCommands(commands) {
                                 result += '\n' + this.employeeDrivers[i];
                             }
                         }
-
                         return result;
                     }
                 }
             });
+            
             return limo;
         }(Automobile));
 
@@ -599,7 +598,7 @@ function processVehicleParkCommands(commands) {
                 result = ParkManager.executeCommands(cmd) + "\n";
             } catch (e) {
                 result = "Invalid command." + "\n";
-                //result = e.message + "\n";
+                //result = e.message + "\n"; 
             }
             output += result;
         }
