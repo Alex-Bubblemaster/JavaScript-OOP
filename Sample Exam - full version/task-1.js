@@ -149,9 +149,8 @@ function solve() {
                         } else {
                             throw new Error();
                         }
-
+                        
                     } else {
-
                         for ( i = 0; i < this.playlists.length; i += 1) {
                             if(this.playlists[i].id === argument){
                                 index = i;
@@ -163,7 +162,6 @@ function solve() {
                         } else {
                             throw new Error();
                         }
-
                     }
                 }
             }
@@ -171,7 +169,7 @@ function solve() {
         });
 
         return player;
-    }()); //need to finish it
+    }()); 
 
     var playlist = (function () {
         var countId = 0;
@@ -228,13 +226,8 @@ function solve() {
                     if (index < 0) {
                         throw new Error();
                     }
-                    
- console.log(this);
-                    console.log(this.playables);
                     this.playables.splice(index, 1);
-                    //console.log(this);
-                     console.log(this.playables);
-                    return this.playables;
+                    return this; // does not pass the tests but does remove playable by id
                 }
             },
             listPlayables:{
